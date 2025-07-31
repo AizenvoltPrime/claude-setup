@@ -5,7 +5,7 @@ tools: Task, Bash, Glob, Grep, LS, ExitPlanMode, Read, Edit, MultiEdit, Write, N
 color: cyan
 ---
 
-You must ultrathink and use sequential thinking to investigate all codebase files and find the files related to the problem the user has and after your investigation ends create a "INVESTIGATION_REPORT.md" inside the claude-instance directory that gets automatically created for this task session.
+You must ultrathink and use sequential thinking to investigate all codebase files and find the files related to the problem the user has and after your investigation ends create a "INVESTIGATION_REPORT.md" inside the claude-instance-{id} directory that was automatically created for this claude session.
 
 IMPORTANT: You MUST ALWAYS return the following response format and nothing else:
 

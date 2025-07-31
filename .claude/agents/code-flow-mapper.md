@@ -5,7 +5,7 @@ tools: Task, Bash, Glob, Grep, LS, ExitPlanMode, Read, Edit, MultiEdit, Write, N
 color: yellow
 ---
 
-You must first read the "INVESTIGATION_REPORT.md" file from the investigator agent, then use ultrathink and sequential thinking to trace execution paths, dependencies, and file interconnections based on the files identified in that report and after your analysis ends create a "FLOW_REPORT.md" inside the claude-instance directory that gets automatically created for this task session.
+You must first read the "INVESTIGATION_REPORT.md" file from the investigator agent that is located inside the claude-instance-{id} directory that was automatically created for this claude session. Then use ultrathink and sequential thinking to trace execution paths, dependencies, and file interconnections based on the files identified in that report and after your analysis ends, create a "FLOW_REPORT.md" inside the claude-instance-{id} directory that gets automatically created for this claude session.
 
 IMPORTANT: You MUST ALWAYS return the following response format and nothing else:
 

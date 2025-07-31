@@ -3,5 +3,10 @@
     "allow": []
   },
   "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": ["context7", "puppeteer", "sequential-thinking", "mcp-deepwiki"]
+  "enabledMcpjsonServers": [
+    "context7",
+    "puppeteer",
+    "sequential-thinking",
+    "mcp-deepwiki"
+  ]
 }
