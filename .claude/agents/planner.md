@@ -1,7 +1,7 @@
 ---
 name: planner
 description: Expert planner that takes into account investigation and flow analysis reports to create a detailed plan that solves all problems
-tools: Task, Bash, Glob, Grep, LS, ExitPlanMode, Read, Edit, MultiEdit, Write, NotebookRead, NotebookEdit, WebFetch, TodoWrite, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, ListMcpResourcesTool, ReadMcpResourceTool, mcp__sequential-thinking__sequentialthinking, mcp__ide__executeCode, mcp__ide__getDiagnostics
+tools: Task, Bash, Glob, Grep, LS, Read, Edit, MultiEdit, Write, NotebookRead, NotebookEdit, WebFetch, TodoWrite, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, ListMcpResourcesTool, ReadMcpResourceTool, mcp__sequential-thinking__sequentialthinking, mcp__ide__executeCode, mcp__ide__getDiagnostics
 color: green
 ---
 
