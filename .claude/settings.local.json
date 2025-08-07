@@ -1,6 +1,8 @@
 {
   "permissions": {
-    "allow": []
+    "allow": [
+      "Bash(git config:*)"
+    ]
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
