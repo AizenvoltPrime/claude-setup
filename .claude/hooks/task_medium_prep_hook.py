@@ -85,7 +85,7 @@ def main():
         problem_text = prompt.replace('/task_medium', '').strip()
 
         # Output context message that will be added to the prompt
-        context_msg = f"Directory claude-instance-{instance_id} has been automatically created for this claude session. The subagents will create the INVESTIGATION_REPORT.md, FLOW_REPORT.md and PLAN.md files inside claude-code-storage/claude-instance-{instance_id}/ directory."
+        context_msg = f"Directory claude-instance-{instance_id} has been automatically created for this claude session. The subagents will create the INVESTIGATION_REPORT.md, FLOW_REPORT.md and PLAN.md files inside {result}/ directory."
         if problem_text:
             context_msg += f" Problem to solve: {problem_text}"
 
