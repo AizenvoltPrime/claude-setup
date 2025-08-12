@@ -81,7 +81,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "uv run .claude/hooks/task_medium_prep_hook.py"
+                        "command": "uv run .claude/hooks/task_hard_prep_hook.py"
                     }
                 ]
             }

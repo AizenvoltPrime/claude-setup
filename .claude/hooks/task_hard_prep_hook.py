@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-UserPromptSubmit hook for task_medium directory preparation.
-Automatically creates claude-instance-{id} directories when users type /task_medium.
+UserPromptSubmit hook for task_hard directory preparation.
+Automatically creates claude-instance-{id} directories when users type /task_hard.
 """
 import json
 import os
@@ -49,10 +49,10 @@ def create_instance_directory(cwd: str, instance_id: int) -> tuple[bool, str]:
 
 
 def validate_prompt(prompt: str) -> bool:
-    """Check if prompt starts with /task_medium and requires directory setup."""
-    # Strip whitespace and check for /task_medium at the start
+    """Check if prompt starts with /task_hard and requires directory setup."""
+    # Strip whitespace and check for /task_hard at the start
     cleaned_prompt = prompt.strip()
-    return cleaned_prompt.startswith('/task_medium')
+    return cleaned_prompt.startswith('/task_hard')
 
 
 def main():
@@ -68,9 +68,9 @@ def main():
     prompt = input_data.get("prompt", "")
     cwd = input_data.get("cwd", os.getcwd())
 
-    # Check if this is a task_medium prompt
+    # Check if this is a task_hard prompt
     if not validate_prompt(prompt):
-        # Not a task_medium prompt, exit silently to allow normal processing
+        # Not a task_hard prompt, exit silently to allow normal processing
         sys.exit(0)
 
     # Get next instance ID
@@ -81,8 +81,8 @@ def main():
     success, result = create_instance_directory(cwd, instance_id)
 
     if success:
-        # Extract the original problem from the prompt (after /task_medium)
-        problem_text = prompt.replace('/task_medium', '').strip()
+        # Extract the original problem from the prompt (after /task_hard)
+        problem_text = prompt.replace('/task_hard', '').strip()
 
         # Output context message that will be added to the prompt
         context_msg = f"Directory claude-instance-{instance_id} has been automatically created for this claude session. The subagents will create the INVESTIGATION_REPORT.md, FLOW_REPORT.md and PLAN.md files inside {result}/ directory."
