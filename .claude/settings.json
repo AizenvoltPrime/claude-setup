@@ -67,10 +67,6 @@
             "Bash(npm run build:*)"
         ]
     },
-    "statusLine": {
-        "type": "command",
-        "command": "bun x ccusage statusline"
-    },
     "enableAllProjectMcpServers": true,
     "enabledMcpjsonServers": [
         "context7",
@@ -90,5 +86,9 @@
                 ]
             }
         ]
+    },
+    "statusLine": {
+        "type": "command",
+        "command": "bun x ccusage statusline"
     }
 }
