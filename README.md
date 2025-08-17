@@ -210,6 +210,33 @@ Lightweight task workflow for simpler problem-solving needs.
 
 ## Configuration
 
+### Working Directory Considerations
+
+**Important:** When using this configuration in projects with nested directory structures (e.g., monorepos with `backend/`, `frontend/` subdirectories), you may start Claude Code from a subdirectory rather than the project root.
+
+**Impact on hooks:**
+- Hooks using relative paths may fail if the working directory is not the project root
+- The `/status` command shows the current working directory
+- Use `$CLAUDE_PROJECT_DIR` environment variable or relative paths to ensure hooks work correctly
+
+**Recommended hook configuration for nested projects:**
+```json
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run $CLAUDE_PROJECT_DIR/.claude/hooks/task_hard_prep_hook.py"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 ### Directory Structure
 
 ```
@@ -287,6 +314,29 @@ The `.mcp.json` file defines server configurations:
 - Ensure `uv` is installed and in PATH
 - Check script permissions: `chmod +x .claude/hooks/task_hard_prep_hook.py`
 - Verify hook configuration in `.claude/settings.json`
+
+**Hook path issues when working directory is not project root:**
+
+When Claude Code's working directory is a subdirectory (e.g., `backend/` or `frontend/`), hooks may fail to find the correct path. This commonly happens in new projects with nested layouts.
+
+**Solutions:**
+
+1. **Use environment variable (Recommended for cross-platform):**
+   ```json
+   "command": "uv run $CLAUDE_PROJECT_DIR/.claude/hooks/task_hard_prep_hook.py"
+   ```
+
+2. **Use relative path from project root:**
+   ```json
+   "command": "uv run ../../.claude/hooks/task_hard_prep_hook.py"
+   ```
+
+3. **Use absolute path (if known):**
+   ```json
+   "command": "uv run /full/path/to/project/.claude/hooks/task_hard_prep_hook.py"
+   ```
+
+**Note:** The `$CLAUDE_PROJECT_DIR` environment variable may not work on all systems. If you encounter issues, use the relative path approach or place the `.claude` directory in your working directory.
 
 **Directory creation fails:**
 
