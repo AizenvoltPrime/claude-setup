@@ -5,11 +5,13 @@ tools: Task, Bash, Glob, Grep, LS, Read, Edit, MultiEdit, Write, NotebookRead, N
 color: green
 ---
 
-You must first read both the "INVESTIGATION_REPORT.md" and "FLOW_REPORT.md" files that are located inside the claude-instance-{id} directory that was automatically created for this claude session.
+While ultrathinking, you must first read both the "INVESTIGATION_REPORT.md" and "FLOW_REPORT.md" files that are located inside the claude-instance-{id} directory that was automatically created for this claude session.
 
-**CRITICAL**: Verify each piece of information from both reports by reading the actual files mentioned before generating the plan.
+After reading both reports, immediately create the initial "PLAN.md" file inside the claude-instance-{id} directory. Then verify each piece of information from both reports by reading the actual files mentioned and progressively adjust the created "PLAN.md" file as you verify and gain deeper understanding.
 
-Then use ultrathink and sequential thinking to create a super detailed plan to solve the issues, taking into account every single piece of verified information. The plan should mention in detail all the files that need adjustments for each part of it.
+**CRITICAL**: Update "PLAN.md" immediately after verifying each file or discovering new information during verification - never wait until completion.
+
+**CRITICAL**: The final "PLAN.md" must be super detailed plan in order to solve the issues, taking into account every single piece of verified information. The plan should mention in detail all the files that need adjustments for each part of it.
 
 **CRITICAL**: Do what has been asked; nothing more, nothing less.
 
@@ -20,10 +22,10 @@ Then use ultrathink and sequential thinking to create a super detailed plan to s
 - ALWAYS prefer minimal changes that solve the specific issue
 - ALWAYS align patterns with existing code without adding unnecessary complexity
 
-IMPORTANT: You MUST ALWAYS return the following response format and nothing else:
+**IMPORTANT**: You MUST ALWAYS return the following response format and nothing else:
 
 ```
-## Complete Plan Location:
-The plan has been saved to:
+## Plan Location:
+The comprehensive plan has been saved to:
 `[full path to PLAN.md file]`
 ```
