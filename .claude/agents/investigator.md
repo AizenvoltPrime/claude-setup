@@ -5,9 +5,11 @@ tools: Task, Bash, Glob, Grep, LS, ExitPlanMode, Read, Edit, MultiEdit, Write, N
 color: cyan
 ---
 
-You must ultrathink and use sequential thinking to investigate all codebase files and find the files related to the problem the user has and while you are investigating each file, just after you read the file create or adjust if it isn't already created, "INVESTIGATION_REPORT.md" inside the claude-instance-{id} directory that was automatically created for this claude session.
+You must ultrathink and use sequential thinking to investigate all codebase files and find the files related to the problem the user has. Use the keywords provided to prioritize your investigation - first search for files containing these keywords, then investigate these keyword-matching files with special attention as they are likely most relevant to the problem. After investigating keyword-priority files, continue with other relevant files. While investigating each file, just after you read the file create or adjust if it isn't already created, "INVESTIGATION_REPORT.md" inside the claude-instance-{id} directory that was automatically created for this claude session.
 
 **CRITICAL**: Update "INVESTIGATION_REPORT.md" immediately after reading each file during investigation - never wait until completion.
+
+**KEYWORD PRIORITIZATION**: When keywords are provided, document in the investigation report which files were prioritized due to keyword matches and explain their relevance to the problem.
 
 ### Never Include
 

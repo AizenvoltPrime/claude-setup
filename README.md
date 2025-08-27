@@ -88,7 +88,8 @@ chmod +x .claude/hooks/task_hard_prep_hook.py
 
 - **`investigator`**: Expert code investigator that tracks down related code to problems
   - Uses sequential thinking and advanced search tools
-  - Generates comprehensive INVESTIGATION_REPORT.md files
+  - Prioritizes files containing specified keywords during investigation
+  - Generates comprehensive INVESTIGATION_REPORT.md files with keyword match analysis
   - Integrated with task_hard workflow
 - **`code-flow-mapper`**: Expert code flow mapper that traces execution paths and file interconnections
   - Maps code flow and analyzes file relationships
@@ -131,28 +132,47 @@ Automated workflow for complex problem-solving with structured investigation and
 - ✅ Automatic `claude-instance-{id}` directory creation
 - ✅ Sequential thinking for complex reasoning
 - ✅ Multi-agent workflow with specialized subagents
+- ✅ Automatically extracts keywords from problems when not explicitly provided
+- ✅ Prioritizes files containing relevant keywords during codebase analysis
 - ✅ Codebase investigation with INVESTIGATION_REPORT.md generation
 - ✅ Code flow mapping with FLOW_REPORT.md analysis
 - ✅ Structured planning with PLAN.md output
 - ✅ Incremental instance numbering
 - ✅ Edge case handling and best practices focus
 
-**Example:**
+**Examples:**
 
 ```bash
+# Basic usage - keywords automatically detected
 /task_hard implement user authentication system
+
+# Advanced usage - explicit keywords for better targeting
+/task_hard implement user dashboard
+Keywords: dashboard, user, profile, settings
+
+# Complex problem with specific focus areas
+/task_hard fix payment processing bugs
+Keywords: payment, stripe, transaction, webhook
 ```
+
+**Keyword Usage:**
+
+- **Automatic Detection**: The system automatically identifies relevant keywords from your problem description
+- **Manual Keywords**: Add Keywords: keyword1, keyword2, keyword3 on a new line after your problem statement for precise file targeting
+- **Priority Investigation**: Files containing these keywords are investigated first and flagged as high-priority in reports
+- **Better Results**: Explicit keywords help focus investigation on the most relevant code areas
 
 **Workflow:**
 
 1. 🔧 Hook detects `/task_hard` prompt
 2. 📁 Creates `claude-code-storage/claude-instance-{id}/` directory
-3. 🔍 Investigator agent analyzes codebase using sequential thinking
-4. 📄 Generates comprehensive INVESTIGATION_REPORT.md with related files
-5. 🗺️ Code-flow-mapper agent traces execution paths and file interconnections
-6. 📊 Generates detailed FLOW_REPORT.md with code relationships
-7. 📋 Planner agent reads both reports and creates comprehensive PLAN.md
-8. 👤 User reviews and approves plan
+3. 🏷️ Extracts or detects relevant keywords from problem statement
+4. 🔍 Investigator agent analyzes codebase using sequential thinking with keyword-based file prioritization
+5. 📄 Generates comprehensive INVESTIGATION_REPORT.md with keyword match analysis and related files
+6. 🗺️ Code-flow-mapper agent traces execution paths and file interconnections
+7. 📊 Generates detailed FLOW_REPORT.md with code relationships
+8. 📋 Planner agent reads both reports and creates comprehensive PLAN.md
+9. 👤 User reviews and approves plan
 
 ### `/code-review` - Automated Code Review
 
@@ -215,11 +235,13 @@ Lightweight task workflow for simpler problem-solving needs.
 **Important:** When using this configuration in projects with nested directory structures (e.g., monorepos with `backend/`, `frontend/` subdirectories), you may start Claude Code from a subdirectory rather than the project root.
 
 **Impact on hooks:**
+
 - Hooks using relative paths may fail if the working directory is not the project root
 - The `/status` command shows the current working directory
 - Use `$CLAUDE_PROJECT_DIR` environment variable or relative paths to ensure hooks work correctly
 
 **Recommended hook configuration for nested projects:**
+
 ```json
 {
   "hooks": {
@@ -322,11 +344,13 @@ When Claude Code's working directory is a subdirectory (e.g., `backend/` or `fro
 **Solutions:**
 
 1. **Use environment variable (Recommended for cross-platform):**
+
    ```json
    "command": "uv run $CLAUDE_PROJECT_DIR/.claude/hooks/task_hard_prep_hook.py"
    ```
 
 2. **Use relative path from project root:**
+
    ```json
    "command": "uv run ../../.claude/hooks/task_hard_prep_hook.py"
    ```
