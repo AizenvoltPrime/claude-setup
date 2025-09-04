@@ -18,6 +18,7 @@ After reading both reports, immediately create the initial "PLAN.md" file inside
 - NEVER overengineer or add features unrelated to the specific problem
 - NEVER change things that don't need changing
 - NEVER modify code that has nothing to do with the task
+- NEVER do backwards compatibility
 - ALWAYS stay focused on the exact requirements
 - ALWAYS prefer minimal changes that solve the specific issue
 - ALWAYS align patterns with existing code without adding unnecessary complexity
