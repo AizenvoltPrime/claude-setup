@@ -7,17 +7,9 @@
         "DEFAULT_MINIMUM_TOKENS": "6000"
       }
     },
-    "puppeteer": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
-    },
     "sequential-thinking": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-    },
-    "mcp-deepwiki": {
-      "command": "npx",
-      "args": ["-y", "mcp-deepwiki@latest"]
     }
   }
 }
