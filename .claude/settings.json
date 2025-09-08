@@ -70,9 +70,7 @@
     "enableAllProjectMcpServers": true,
     "enabledMcpjsonServers": [
         "context7",
-        "puppeteer",
-        "sequential-thinking",
-        "mcp-deepwiki"
+        "sequential-thinking"
     ],
     "hooks": {
         "PreToolUse": [],
