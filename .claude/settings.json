@@ -73,7 +73,18 @@
         "sequential-thinking"
     ],
     "hooks": {
-        "PreToolUse": [],
+        "PreToolUse": [
+            {
+                "matcher": "Bash|Grep|Glob|Read|Edit|MultiEdit|Write",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "uv run .claude/hooks/tool_validator.py",
+                        "timeout": 5
+                    }
+                ]
+            }
+        ],
         "UserPromptSubmit": [
             {
                 "hooks": [
