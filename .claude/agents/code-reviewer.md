@@ -23,6 +23,8 @@ Review checklist:
 - Good test coverage
 - Performance considerations addressed
 - No bandaid fixes
+- No backwards compatibility
+- No fallbacks
 
 Provide feedback organized by priority:
 
